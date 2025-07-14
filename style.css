@@ -54,6 +54,31 @@ h1 {
   border-color: #2196f3;
 }
 
+
+.card.micro {
+  background: #e3f2fd;
+  border-color: #2196f3;
+}
+
+.card.calculo {
+  background: #fffde7;
+  border-color: #fdd835;
+}
+
+.card.estadistica {
+  background: #e8f5e9;
+  border-color: #4caf50;
+}
+
+.card.macro {
+  background: #f3e5f5;
+  border-color: #9c27b0;
+}
+
+.card.otros {
+  background: #f5f5f5;
+  border-color: #b0bec5;
+}
 /* Estados de las tarjetas */
 .card.locked {
   background: #f5f5f5;
