@@ -3,17 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Malla Interactiva - Economía</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <h1>Malla Interactiva - Economía UA</h1>
-  <div class="buttons">
-    <button onclick="resetMalla()">🔄 Reiniciar</button>
-    <button onclick="guardarMalla()">💾 Guardar progreso</button>
-  </div>
-  <div id="malla-container"></div>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Malla Interactiva de la Carrera de Economía - Universidad Autónoma">
+  <title>Malla Interactiva - Economía UA</title>
 
+  <!-- Fuente moderna desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tu CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Malla Interactiva - Economía UA</h1>
+  </header>
+
+  <section class="buttons">
+    <button onclick="resetMalla()" aria-label="Reiniciar malla">🔄 Reiniciar</button>
+    <button onclick="guardarMalla()" aria-label="Guardar progreso">💾 Guardar progreso</button>
+  </section>
+
+  <main id="malla-container" aria-live="polite">
+    <!-- Aquí se cargan dinámicamente las tarjetas -->
+  </main>
+
+  <footer style="text-align: center; margin-top: 30px; font-size: 0.9em; color: #555;">
+    <p>&copy; 2025 Universidad del Atlántico  - Economía</p>
+  </footer>
+
+  <!-- Scripts -->
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
