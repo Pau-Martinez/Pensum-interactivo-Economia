@@ -1,12 +1,9 @@
 const mallaContainer = document.getElementById("malla-container");
-
 let estadoMaterias = {};
 
 function cargarEstado() {
   const guardado = localStorage.getItem("estadoMaterias");
-  if (guardado) {
-    estadoMaterias = JSON.parse(guardado);
-  }
+  if (guardado) estadoMaterias = JSON.parse(guardado);
 }
 
 function guardarMalla() {
@@ -29,7 +26,6 @@ function desbloqueada(materia) {
 function toggleMateria(codigo) {
   const materia = materias.find((m) => m.codigo === codigo);
   if (!desbloqueada(materia)) return;
-
   estadoMaterias[codigo] = !estadoMaterias[codigo];
   renderMalla();
 }
@@ -39,19 +35,19 @@ function renderMalla() {
 
   materias.forEach((materia) => {
     const card = document.createElement("div");
-    card.className = "card";
+    card.classList.add("card");
 
-    const estaHecha = estadoMaterias[materia.codigo];
-    const estaDesbloqueada = desbloqueada(materia);
-
-    if (estaHecha) card.classList.add("done");
-    else if (!estaDesbloqueada) card.classList.add("locked");
+    if (estadoMaterias[materia.codigo]) {
+      card.classList.add("done");
+    } else if (!desbloqueada(materia)) {
+      card.classList.add("locked");
+    }
 
     card.innerHTML = `
       <div class="code">${materia.codigo}</div>
       <div class="name">${materia.nombre}</div>
       <div class="credits">${materia.creditos} créditos</div>
-    `;
+    ;
 
     card.onclick = () => toggleMateria(materia.codigo);
     mallaContainer.appendChild(card);
