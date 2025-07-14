@@ -24,24 +24,23 @@ function resetMalla() {
   }
 }
 
-// Verificar si una materia está desbloqueada (todos los prerequisitos cumplidos)
+// Revisar prerequisitos
 function desbloqueada(materia) {
-  return materia.prerequisitos.every((codigo) => estadoMaterias[codigo]);
+  return materia.prerequisitos.every(codigo => estadoMaterias[codigo]);
 }
 
-// Cambiar estado de una materia al hacer clic
+// Cambiar estado al hacer clic
 function toggleMateria(codigo) {
-  const materia = materias.find((m) => m.codigo === codigo);
+  const materia = materias.find(m => m.codigo === codigo);
   if (!desbloqueada(materia)) return;
   estadoMaterias[codigo] = !estadoMaterias[codigo];
   renderMalla();
 }
 
-// Renderizar la malla completa
+// Renderizar tarjetas
 function renderMalla() {
   mallaContainer.innerHTML = "";
-
-  materias.forEach((materia) => {
+  materias.forEach(materia => {
     const card = document.createElement("div");
     card.classList.add("card");
 
@@ -62,6 +61,6 @@ function renderMalla() {
   });
 }
 
-// Inicialización
+// Inicializar
 cargarEstado();
 renderMalla();
