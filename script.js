@@ -52,6 +52,20 @@ function renderMalla() {
     mallaContainer.appendChild(card);
   });
 }
+function crearTarjeta(curso) {
+  const tarjeta = document.createElement('div');
+  tarjeta.classList.add('card', curso.grupo);
 
+  tarjeta.innerHTML = `
+    <div class="code">${curso.codigo}</div>
+    <div>${curso.nombre}</div>
+    <div class="credits">${curso.creditos} créditos</div>
+  `;
+
+  document.getElementById('malla-container').appendChild(tarjeta);
+}
+
+// Carga todas las tarjetas al iniciar
+cursos.forEach(crearTarjeta);
 cargarEstado();
 renderMalla();
