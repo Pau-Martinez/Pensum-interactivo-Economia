@@ -1,108 +1,71 @@
 body {
   font-family: 'Poppins', sans-serif;
-  padding: 30px;
-  background: linear-gradient(135deg, #e0f7fa, #fce4ec);
-  color: #222;
-  min-height: 100vh;
+  background: #f5f5f5;
   margin: 0;
+  padding: 20px;
+  text-align: center;
 }
 
 h1 {
-  text-align: center;
-  font-weight: 800;
-  font-size: 3rem;
   color: #003366;
-  margin-bottom: 30px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-}
-
-#malla-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.card {
-  border-radius: 16px;
-  border: 2px solid #e0e0e0;
-  padding: 20px;
-  background: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.card:hover {
-  background: #e3f2fd;
-  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
-  transform: translateY(-5px);
-}
-
-.card.micro { background: #e3f2fd; border-color: #2196f3; }
-.card.macro { background: #f3e5f5; border-color: #9c27b0; }
-.card.estadistica { background: #e8f5e9; border-color: #4caf50; }
-.card.calculo { background: #fffde7; border-color: #fdd835; }
-.card.otros { background: #f5f5f5; border-color: #b0bec5; }
-
-.card.locked {
-  background: #f5f5f5;
-  color: #b0bec5;
-  cursor: not-allowed;
-  border-color: #cfd8dc;
-  box-shadow: none;
-}
-
-.card.done {
-  background: #c8e6c9;
-  border-color: #43a047;
-  color: #1b5e20;
-  box-shadow: 0 0 15px 4px rgba(76, 175, 80, 0.5);
-  font-weight: 700;
-}
-
-.card .code {
-  font-weight: 700;
-  font-size: 1.2em;
-  color: #1565c0;
-  margin-bottom: 12px;
-}
-
-.card .credits {
-  font-size: 0.9em;
-  color: #607d8b;
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .buttons {
-  text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 button {
   margin: 0 10px;
-  padding: 12px 24px;
-  border-radius: 30px;
-  border: none;
+  padding: 10px 20px;
   background: #1976d2;
   color: white;
-  font-weight: 600;
-  font-size: 1rem;
+  border: none;
+  border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
-  transition: background 0.3s, box-shadow 0.3s;
+  font-weight: bold;
 }
 
 button:hover {
   background: #0d47a1;
-  box-shadow: 0 6px 16px rgba(13, 71, 161, 0.5);
+}
+
+#malla-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  border: 2px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.card.locked {
+  background: #eee;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.card.done {
+  background: #c8e6c9;
+  border-color: #2e7d32;
+  font-weight: bold;
 }
 
 footer {
-  text-align: center;
-  margin-top: 30px;
-  font-size: 0.9em;
+  margin-top: 40px;
   color: #555;
+  font-size: 0.9em;
 }
