@@ -1,16 +1,21 @@
 const mallaContainer = document.getElementById("malla-container");
 let estadoMaterias = {};
 
+// Cargar estado desde localStorage
 function cargarEstado() {
   const guardado = localStorage.getItem("estadoMaterias");
-  if (guardado) estadoMaterias = JSON.parse(guardado);
+  if (guardado) {
+    estadoMaterias = JSON.parse(guardado);
+  }
 }
 
+// Guardar progreso
 function guardarMalla() {
   localStorage.setItem("estadoMaterias", JSON.stringify(estadoMaterias));
-  alert("Progreso guardado ✅");
+  alert("¡Progreso guardado!");
 }
 
+// Resetear progreso
 function resetMalla() {
   if (confirm("¿Estás seguro de reiniciar la malla?")) {
     localStorage.removeItem("estadoMaterias");
@@ -19,10 +24,12 @@ function resetMalla() {
   }
 }
 
+// Verificar si una materia está desbloqueada (todos los prerequisitos cumplidos)
 function desbloqueada(materia) {
   return materia.prerequisitos.every((codigo) => estadoMaterias[codigo]);
 }
 
+// Cambiar estado de una materia al hacer clic
 function toggleMateria(codigo) {
   const materia = materias.find((m) => m.codigo === codigo);
   if (!desbloqueada(materia)) return;
@@ -30,6 +37,7 @@ function toggleMateria(codigo) {
   renderMalla();
 }
 
+// Renderizar la malla completa
 function renderMalla() {
   mallaContainer.innerHTML = "";
 
@@ -47,12 +55,13 @@ function renderMalla() {
       <div class="code">${materia.codigo}</div>
       <div class="name">${materia.nombre}</div>
       <div class="credits">${materia.creditos} créditos</div>
-    ;
+    `;
 
     card.onclick = () => toggleMateria(materia.codigo);
     mallaContainer.appendChild(card);
   });
 }
 
+// Inicialización
 cargarEstado();
 renderMalla();
