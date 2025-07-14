@@ -48,7 +48,7 @@ const materias = [
 
   // Semestre 7
   { codigo: "52494", nombre: "Seminario de Investigación Económica", creditos: 3, prerequisitos: [] },
-  { codigo: "52495", nombre: "Política Económica Colombiana", creditos: 3, prerequisitos: ["52490", "52488", "52475", "52487", "52484"] },
+  { codigo: "52495", nombre: "Política Económica Colombiana", creditos: 3, prerequisitos: ["52490", "52488"] },
   { codigo: "52496", nombre: "Electiva de Profundización I", creditos: 3, prerequisitos: ["52475", "52487", "52484"] },
   { codigo: "52497", nombre: "Electiva de Complementariedad II", creditos: 3, prerequisitos: [] },
   { codigo: "52498", nombre: "Electiva de Profundización II", creditos: 3, prerequisitos: ["52475", "52487", "52484"] },
