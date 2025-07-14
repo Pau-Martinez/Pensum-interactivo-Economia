@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Malla Interactiva de la Carrera de Economía - Universidad Autónoma">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Malla Interactiva - Economía UA</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -12,16 +10,14 @@
 </head>
 
 <body>
-  <header>
-    <h1>Malla Interactiva - Economía UA</h1>
-  </header>
+  <h1>Malla Interactiva - Economía UA</h1>
 
-  <section class="buttons">
+  <div class="buttons">
     <button onclick="resetMalla()">🔄 Reiniciar</button>
     <button onclick="guardarMalla()">💾 Guardar progreso</button>
-  </section>
+  </div>
 
-  <main id="malla-container" aria-live="polite"></main>
+  <div id="malla-container"></div>
 
   <footer>
     <p>&copy; 2025 Universidad del Atlántico - Economía</p>
