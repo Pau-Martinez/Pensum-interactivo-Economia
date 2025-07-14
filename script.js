@@ -12,7 +12,7 @@ function guardarMalla() {
 }
 
 function resetMalla() {
-  if (confirm("¿Estás seguro de reiniciar la malla?")) {
+  if (confirm("¿Seguro que quieres reiniciar la malla?")) {
     localStorage.removeItem("estadoMaterias");
     estadoMaterias = {};
     renderMalla();
@@ -30,24 +30,18 @@ function toggleMateria(codigo) {
   renderMalla();
 }
 
-function asignarGrupo(materia) {
-  const nombre = materia.nombre.toLowerCase();
-  if (nombre.includes("micro")) return "micro";
-  if (nombre.includes("macro")) return "macro";
-  if (nombre.includes("econometría") || nombre.includes("estadísticos") || nombre.includes("probabilidad")) return "estadistica";
-  if (nombre.includes("cálculo")) return "calculo";
-  return "otros";
-}
-
 function renderMalla() {
   mallaContainer.innerHTML = "";
 
   materias.forEach((materia) => {
     const card = document.createElement("div");
-    card.classList.add("card", asignarGrupo(materia));
+    card.classList.add("card");
 
-    if (estadoMaterias[materia.codigo]) card.classList.add("done");
-    else if (!desbloqueada(materia)) card.classList.add("locked");
+    if (estadoMaterias[materia.codigo]) {
+      card.classList.add("done");
+    } else if (!desbloqueada(materia)) {
+      card.classList.add("locked");
+    }
 
     card.innerHTML = `
       <div class="code">${materia.codigo}</div>
