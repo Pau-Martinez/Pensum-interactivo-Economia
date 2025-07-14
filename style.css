@@ -1,124 +1,71 @@
 body {
-  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 30px;
-  background: linear-gradient(135deg, #e0f7fa, #fce4ec);
-  color: #222;
-  min-height: 100vh;
-  margin: 0;
-}
-
-/* Encabezado Principal */
-h1 {
-  text-align: center;
-  font-weight: 800;
-  font-size: 3rem;
-  color: #003366;
-  margin-bottom: 30px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-  letter-spacing: 1px;
-}
-
-/* Contenedor de la Malla */
-#malla-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Tarjetas */
-.card {
-  border-radius: 16px;
-  border: 2px solid #e0e0e0;
-  padding: 20px;
-  background: #fff;
-  cursor: pointer;
-  transition: 
-    background-color 0.3s ease, 
-    box-shadow 0.3s ease, 
-    transform 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-}
-
-.card:hover {
-  background: #e3f2fd;
-  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
-  transform: translateY(-5px);
-  border-color: #2196f3;
-}
-
-/* Estados de las tarjetas */
-.card.locked {
+  font-family: 'Poppins', sans-serif;
   background: #f5f5f5;
-  color: #b0bec5;
-  cursor: not-allowed;
-  border-color: #cfd8dc;
-  box-shadow: none;
-  transform: none;
-}
-
-.card.done {
-  background: #c8e6c9;
-  border-color: #43a047;
-  color: #1b5e20;
-  box-shadow: 0 0 15px 4px rgba(76, 175, 80, 0.5);
-  font-weight: 700;
-}
-
-/* Código y Créditos */
-.card .code {
-  font-weight: 700;
-  font-size: 1.2em;
-  color: #1565c0;
-  margin-bottom: 12px;
-  user-select: none;
-}
-
-.card .credits {
-  font-size: 0.9em;
-  color: #607d8b;
-  margin-top: auto;
-}
-
-/* Botones */
-.buttons {
+  margin: 0;
+  padding: 20px;
   text-align: center;
-  margin-bottom: 25px;
+}
+
+h1 {
+  color: #003366;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  margin-bottom: 20px;
 }
 
 button {
   margin: 0 10px;
-  padding: 12px 24px;
-  border-radius: 30px;
-  border: none;
+  padding: 10px 20px;
   background: #1976d2;
   color: white;
-  font-weight: 600;
-  font-size: 1rem;
+  border: none;
+  border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-weight: bold;
 }
 
 button:hover {
   background: #0d47a1;
-  box-shadow: 0 6px 16px rgba(13, 71, 161, 0.5);
 }
 
-/* Responsive Ajustes */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.2rem;
-  }
-  button {
-    margin: 10px 0;
-    width: 80%;
-  }
+#malla-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  border: 2px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.card.locked {
+  background: #eee;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.card.done {
+  background: #c8e6c9;
+  border-color: #2e7d32;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 40px;
+  color: #555;
+  font-size: 0.9em;
 }
