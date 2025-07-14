@@ -1,9 +1,12 @@
 const mallaContainer = document.getElementById("malla-container");
+
 let estadoMaterias = {};
 
 function cargarEstado() {
   const guardado = localStorage.getItem("estadoMaterias");
-  if (guardado) estadoMaterias = JSON.parse(guardado);
+  if (guardado) {
+    estadoMaterias = JSON.parse(guardado);
+  }
 }
 
 function guardarMalla() {
@@ -12,7 +15,7 @@ function guardarMalla() {
 }
 
 function resetMalla() {
-  if (confirm("¿Seguro que quieres reiniciar la malla?")) {
+  if (confirm("¿Estás seguro de reiniciar la malla?")) {
     localStorage.removeItem("estadoMaterias");
     estadoMaterias = {};
     renderMalla();
@@ -26,6 +29,7 @@ function desbloqueada(materia) {
 function toggleMateria(codigo) {
   const materia = materias.find((m) => m.codigo === codigo);
   if (!desbloqueada(materia)) return;
+
   estadoMaterias[codigo] = !estadoMaterias[codigo];
   renderMalla();
 }
@@ -35,13 +39,13 @@ function renderMalla() {
 
   materias.forEach((materia) => {
     const card = document.createElement("div");
-    card.classList.add("card");
+    card.className = "card";
 
-    if (estadoMaterias[materia.codigo]) {
-      card.classList.add("done");
-    } else if (!desbloqueada(materia)) {
-      card.classList.add("locked");
-    }
+    const estaHecha = estadoMaterias[materia.codigo];
+    const estaDesbloqueada = desbloqueada(materia);
+
+    if (estaHecha) card.classList.add("done");
+    else if (!estaDesbloqueada) card.classList.add("locked");
 
     card.innerHTML = `
       <div class="code">${materia.codigo}</div>
