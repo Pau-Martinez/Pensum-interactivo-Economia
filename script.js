@@ -1,7 +1,7 @@
 const mallaContainer = document.getElementById("malla-container");
 let estadoMaterias = {};
 
-// Cargar progreso desde localStorage
+// Cargar estado guardado
 function cargarEstado() {
   const guardado = localStorage.getItem("estadoMaterias");
   if (guardado) {
@@ -9,7 +9,7 @@ function cargarEstado() {
   }
 }
 
-// Guardar progreso en localStorage
+// Guardar progreso
 function guardarMalla() {
   localStorage.setItem("estadoMaterias", JSON.stringify(estadoMaterias));
   alert("Progreso guardado ✅");
@@ -24,12 +24,12 @@ function resetMalla() {
   }
 }
 
-// Validar si la materia está desbloqueada (prerrequisitos cumplidos)
+// Verificar si la materia está desbloqueada
 function desbloqueada(materia) {
   return materia.prerequisitos.every((codigo) => estadoMaterias[codigo]);
 }
 
-// Cambiar el estado de la materia (hecha/no hecha)
+// Cambiar estado de la materia al hacer clic
 function toggleMateria(codigo) {
   const materia = materias.find((m) => m.codigo === codigo);
   if (!desbloqueada(materia)) return;
@@ -37,7 +37,7 @@ function toggleMateria(codigo) {
   renderMalla();
 }
 
-// Asignar grupo de color por nombre de la materia
+// Asignar color de grupo a la tarjeta
 function asignarGrupo(materia) {
   const nombre = materia.nombre.toLowerCase();
   if (nombre.includes("micro")) return "micro";
@@ -48,26 +48,22 @@ function asignarGrupo(materia) {
   return "otros";
 }
 
-// Renderizar la malla completa
+// Dibujar la malla completa
 function renderMalla() {
   mallaContainer.innerHTML = "";
 
   materias.forEach((materia) => {
     const card = document.createElement("div");
-    card.className = "card";
+    card.classList.add("card");
 
-    // Asignar grupo de color
     const grupo = asignarGrupo(materia);
     card.classList.add(grupo);
 
     const estaHecha = estadoMaterias[materia.codigo];
     const estaDesbloqueada = desbloqueada(materia);
 
-    if (estaHecha) {
-      card.classList.add("done");
-    } else if (!estaDesbloqueada) {
-      card.classList.add("locked");
-    }
+    if (estaHecha) card.classList.add("done");
+    else if (!estaDesbloqueada) card.classList.add("locked");
 
     card.innerHTML = `
       <div class="code">${materia.codigo}</div>
